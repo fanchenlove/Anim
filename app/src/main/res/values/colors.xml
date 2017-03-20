@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorWhite">#FFF</color>
+    <color name="transparent">#0000</color>
+    <color name="text_black">#737373</color>
+    <color name="text_grey">#9DA0A3</color>
+    <color name="divider">#e6e6e6</color>
+    <color name="gray_light">#dcdcdc</color>
+    <color name="navigation_background_light">#FFF8F8F8</color>
+    <color name="window_background">#eaeaea</color>
+    <color name="line_bg">#e6e6e6</color>
+    <color name="colorPrimary">#fb7299</color>
+    <color name="colorPrimaryDark">#EAEAEA</color>
+    <color name="colorAccent">@android:color/black</color>
+    <color name="white">#ffffff</color>
+    <color name="searchmenu">#4BA1EE</color>
+    <color name="nav_head_image_background">#F8668D</color>
+    <color name="nav_head_round_background">#FDC7D6</color>
+    <color name="nav_head_roung_text_background">#FB7BA0</color>
+    <color name="theme_color_primary_dark">#b85671</color>
+    <color name="chooseRed">#FF00</color>
+    <color name="defaultRed">#FFF</color>
+    <color name="colorControlNormal">#EAEAEA</color>
+</resources>
