@@ -30,7 +30,7 @@ import com.fanchen.anim.camere.CameraManager;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.fanchen.anim.fragment.CaptureFragment;
-import com.fanchen.anim.view.ViewfinderResultPointCallback;
+import com.fanchen.anim.view.call.ViewfinderResultPointCallback;
 import com.fanchen.anim.view.ViewfinderView;
 
 import java.util.Vector;

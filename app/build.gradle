@@ -45,4 +45,5 @@ dependencies {
     compile 'com.jude:swipebackhelper:3.1.2'
     compile 'com.bilibili:magicasakura:0.1.5@aar'
     compile files('libs/zxing.jar')
+    compile files('libs/nineoldandroids-2.4.0.jar')
 }

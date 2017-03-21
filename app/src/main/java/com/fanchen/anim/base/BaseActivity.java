@@ -201,6 +201,15 @@ public abstract class BaseActivity extends AppCompatActivity implements ThemeFra
     }
 
     /**
+     * 为关闭当前activity添加淡入淡出的动画
+     */
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.tran_pre_in, R.anim.tran_pre_out);
+    }
+
+    /**
      * @param clazz
      * @param bundle
      */

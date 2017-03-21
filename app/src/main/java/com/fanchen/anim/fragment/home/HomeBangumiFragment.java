@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.fanchen.anim.R;
+import com.fanchen.anim.activity.AnimWebActivity;
 import com.fanchen.anim.activity.BangumiRegionActivity;
 import com.fanchen.anim.activity.CaptureActivity;
 import com.fanchen.anim.adapter.AnimBangumiAdapter;
@@ -104,7 +105,9 @@ public class HomeBangumiFragment extends BaseFragment implements SwipeRefreshLay
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.iv_timeline:
-                startActivity(CaptureActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(AnimWebActivity.WEB_URL,"http://www.baidu.com");
+                startActivity(AnimWebActivity.class,bundle);
                 break;
             case R.id.iv_index:
                 startActivity(BangumiRegionActivity.class);
