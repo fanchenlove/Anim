@@ -15,13 +15,11 @@ import com.fanchen.anim.adapter.pager.HomePagerAdapter;
 import com.fanchen.anim.base.BaseFragment;
 import com.fanchen.anim.view.CircleImageView;
 import com.flyco.tablayout.SlidingTabLayout;
-import com.wyt.searchbox.SearchFragment;
-import com.wyt.searchbox.custom.IOnSearchClickListener;
 
 /**
  * Created by fanchen on 2017/2/24.
  */
-public class HomePagerFragment extends BaseFragment implements Toolbar.OnMenuItemClickListener, IOnSearchClickListener, View.OnClickListener {
+public class HomePagerFragment extends BaseFragment implements Toolbar.OnMenuItemClickListener, SearchFragment.OnSearchClickListener, View.OnClickListener {
 
     private Toolbar mToolbar;
     private ViewPager mViewPager;
@@ -44,8 +42,8 @@ public class HomePagerFragment extends BaseFragment implements Toolbar.OnMenuIte
     }
 
     @Override
-    protected void initViewData(@Nullable Bundle savedInstanceState) {
-        super.initViewData(savedInstanceState);
+    protected void initViewData(@Nullable Bundle savedInstanceState, Bundle args) {
+        super.initViewData(savedInstanceState, args);
         setHasOptionsMenu(true);
         mToolbar.setTitle("");
         activity.setSupportActionBar(mToolbar);
@@ -66,7 +64,7 @@ public class HomePagerFragment extends BaseFragment implements Toolbar.OnMenuIte
     }
 
     @Override
-    public void OnSearchClick(String keyword) {
+    public void onSearchClick(String keyword) {
 
     }
 

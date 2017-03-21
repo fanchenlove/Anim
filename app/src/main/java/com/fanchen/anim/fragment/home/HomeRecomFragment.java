@@ -18,10 +18,8 @@ import com.fanchen.anim.entity.AnimRecomHome;
 import com.fanchen.anim.retrofit.BumimiService;
 import com.fanchen.anim.retrofit.call.RetrofitCallback;
 import com.fanchen.anim.retrofit.manager.RetrofitManager;
-import com.github.why168.LoopViewPagerLayout;
-import com.github.why168.listener.OnBannerItemClickListener;
-import com.github.why168.loader.OnDefaultImageViewLoader;
-import com.github.why168.modle.IBanner;
+import com.fanchen.anim.view.LoopViewPagerLayout;
+import com.fanchen.anim.entity.inter.IBanner;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -29,7 +27,7 @@ import java.util.ArrayList;
 /**
  * Created by fanchen on 2017/2/25.
  */
-public class HomeRecomFragment extends BaseFragment implements OnBannerItemClickListener, SwipeRefreshLayout.OnRefreshListener {
+public class HomeRecomFragment extends BaseFragment implements LoopViewPagerLayout.OnBannerItemClickListener, SwipeRefreshLayout.OnRefreshListener {
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
@@ -37,6 +35,7 @@ public class HomeRecomFragment extends BaseFragment implements OnBannerItemClick
 
     private AnimRecomAdapter mAnimRecomAdapter;
     private Picasso picasso;
+    private boolean isRefresh = true;
 
     public static HomeRecomFragment newIntance() {
         return new HomeRecomFragment();
@@ -56,9 +55,13 @@ public class HomeRecomFragment extends BaseFragment implements OnBannerItemClick
     HeaderAndFooterWrapper wrapper;
 
     @Override
-    protected void initViewData(@Nullable Bundle savedInstanceState) {
-        super.initViewData(savedInstanceState);
+    protected void initViewData(@Nullable Bundle savedInstanceState, Bundle args) {
+        super.initViewData(savedInstanceState, args);
         picasso = Picasso.with(activity);
+//        if(args != null){
+//            isRefresh = args.getBoolean("");
+//            mSwipeRefreshLayout.set
+//        }
         mAnimRecomAdapter = new AnimRecomAdapter(activity, picasso);
         wrapper = new HeaderAndFooterWrapper(mAnimRecomAdapter);
         LayoutInflater layoutInflater = getLayoutInflater();
@@ -92,7 +95,7 @@ public class HomeRecomFragment extends BaseFragment implements OnBannerItemClick
 
     }
 
-    private OnDefaultImageViewLoader imageViewLoader = new OnDefaultImageViewLoader() {
+    private LoopViewPagerLayout.OnDefaultImageViewLoader imageViewLoader = new LoopViewPagerLayout.OnDefaultImageViewLoader() {
         @Override
         public void onLoadImageView(ImageView imageView, Object parameter) {
             picasso.load(parameter.toString()).tag(HomeRecomFragment.class).config(Bitmap.Config.RGB_565).into(imageView);

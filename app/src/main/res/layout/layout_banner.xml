@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.github.why168.LoopViewPagerLayout
+    <com.fanchen.anim.view.LoopViewPagerLayout
         android:id="@+id/lvpl_banner"
         android:layout_width="match_parent"
         android:layout_height="120dp" />

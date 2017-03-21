@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -142,6 +143,17 @@ public abstract class BaseActivity extends AppCompatActivity implements ThemeFra
             ThemeHelper.setTheme(this, currentTheme);
             ThemeUtils.refreshUI(this, extraRefreshable);
         }
+    }
+
+    /**
+     *
+     * @param attr
+     * @return
+     */
+    public int getAttributeValue(int attr){
+        TypedValue typedValue = new TypedValue();
+        getTheme().resolveAttribute(attr, typedValue, true);
+        return typedValue.data;
     }
 
 //    @Override

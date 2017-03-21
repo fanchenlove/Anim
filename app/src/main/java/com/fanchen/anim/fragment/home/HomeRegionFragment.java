@@ -43,11 +43,12 @@ public class HomeRegionFragment extends BaseFragment implements BaseRecyclerAdap
     }
 
     @Override
-    protected void initViewData(@Nullable Bundle savedInstanceState) {
-        super.initViewData(savedInstanceState);
+    protected void initViewData(@Nullable Bundle savedInstanceState, Bundle args) {
+        super.initViewData(savedInstanceState, args);
         mRegionAdapter = new HomeRegionAdapter(activity);
         mRecyclerView.setAdapter(mRegionAdapter);
         mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
+        mSwipeRefreshLayout.setEnabled(false);
         mRegionAdapter.addAll(BumimiUtil.getAnimClasss());
     }
 

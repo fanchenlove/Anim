@@ -62,7 +62,7 @@ public abstract class BaseFragment extends Fragment {
     private  void initFragment(View view, @Nullable Bundle savedInstanceState){
         synchronized(BaseFragment.class){
             findView(view);
-            initViewData(savedInstanceState);
+            initViewData(savedInstanceState, getArguments());
             setListener();
             isPrepared = true;
         }
@@ -95,12 +95,25 @@ public abstract class BaseFragment extends Fragment {
     /**
      * 初始化视图控件及数据
      * @param savedInstanceState
+     * @param args
      */
-    protected void initViewData(@Nullable Bundle savedInstanceState){}
+    protected void initViewData(@Nullable Bundle savedInstanceState, Bundle args){}
     /**
      *设置监听器
      */
     protected void setListener(){}
+
+    /**
+     *
+     * @param attr
+     * @return
+     */
+    public int getAttributeValue(int attr){
+        if(isAdded() && ! isDetached() && activity != null){
+            return activity.getAttributeValue(attr);
+        }
+        return -1;
+    }
 
     /**
      * 通过id查找控件，在mMainView上

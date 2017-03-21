@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.fanchen.anim.entity.inter.ITitle;
-import com.github.why168.modle.IBanner;
+import com.fanchen.anim.entity.inter.IBanner;
 
 /**
  * 横幅

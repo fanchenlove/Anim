@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import com.fanchen.anim.R;
 import com.fanchen.anim.activity.BangumiRegionActivity;
+import com.fanchen.anim.activity.CaptureActivity;
 import com.fanchen.anim.adapter.AnimBangumiAdapter;
 import com.fanchen.anim.base.BaseFragment;
 import com.fanchen.anim.adapter.wrapper.HeaderAndFooterWrapper;
@@ -20,10 +21,8 @@ import com.fanchen.anim.entity.AnimBangumiHome;
 import com.fanchen.anim.retrofit.BumimiService;
 import com.fanchen.anim.retrofit.call.RetrofitCallback;
 import com.fanchen.anim.retrofit.manager.RetrofitManager;
-import com.github.why168.LoopViewPagerLayout;
-import com.github.why168.listener.OnBannerItemClickListener;
-import com.github.why168.loader.OnDefaultImageViewLoader;
-import com.github.why168.modle.IBanner;
+import com.fanchen.anim.view.LoopViewPagerLayout;
+import com.fanchen.anim.entity.inter.IBanner;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -31,7 +30,7 @@ import java.util.ArrayList;
 /**
  * Created by fanchen on 2017/2/25.
  */
-public class HomeBangumiFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, OnBannerItemClickListener, View.OnClickListener {
+public class HomeBangumiFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, LoopViewPagerLayout.OnBannerItemClickListener, View.OnClickListener {
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
@@ -60,8 +59,8 @@ public class HomeBangumiFragment extends BaseFragment implements SwipeRefreshLay
     }
 
     @Override
-    protected void initViewData(@Nullable Bundle savedInstanceState) {
-        super.initViewData(savedInstanceState);
+    protected void initViewData(@Nullable Bundle savedInstanceState, Bundle args) {
+        super.initViewData(savedInstanceState, args);
         picasso = Picasso.with(activity);
         mBangumiAdapter = new AnimBangumiAdapter(activity,picasso);
         HeaderAndFooterWrapper wrapper = new HeaderAndFooterWrapper(mBangumiAdapter);
@@ -105,6 +104,7 @@ public class HomeBangumiFragment extends BaseFragment implements SwipeRefreshLay
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.iv_timeline:
+                startActivity(CaptureActivity.class);
                 break;
             case R.id.iv_index:
                 startActivity(BangumiRegionActivity.class);
@@ -132,7 +132,7 @@ public class HomeBangumiFragment extends BaseFragment implements SwipeRefreshLay
         }
     };
 
-    private OnDefaultImageViewLoader imageViewLoader = new OnDefaultImageViewLoader() {
+    private LoopViewPagerLayout.OnDefaultImageViewLoader imageViewLoader = new LoopViewPagerLayout.OnDefaultImageViewLoader() {
         @Override
         public void onLoadImageView(ImageView imageView, Object parameter) {
             picasso.load(parameter.toString()).tag(HomeBangumiFragment.class).config(Bitmap.Config.RGB_565).into(imageView);

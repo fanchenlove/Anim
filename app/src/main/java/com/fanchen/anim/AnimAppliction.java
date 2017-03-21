@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 
 import com.fanchen.anim.retrofit.manager.RetrofitManager;
 import com.fanchen.anim.util.LogUtil;
+import com.fanchen.anim.util.ZXingLibrary;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import java.util.ArrayList;
@@ -31,7 +32,9 @@ public class AnimAppliction extends Application{
     public void onCreate() {
         super.onCreate();
         app = this;
+        /*** 初始化尺寸工具类*/
         AppCrashHandler.shareInstance(this);
+        ZXingLibrary.initDisplayOpinion(this);
         RetrofitManager.init(this);
         CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(this); // App的策略Bean
         strategy.setAppChannel(getPackageName()); // 设置渠道
@@ -41,7 +44,6 @@ public class AnimAppliction extends Application{
         CrashReport.initCrashReport(this,"", false, strategy); // 自定义策略生效，必须在初始化SDK前调用
         CrashReport.setUserId("BBDTEK");
     }
-
 
     /**
      * 向fragment队列添加一个
