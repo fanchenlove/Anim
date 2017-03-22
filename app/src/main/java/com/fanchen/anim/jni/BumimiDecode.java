@@ -9,7 +9,6 @@ import com.fanchen.anim.util.SecurityUtil;
 public class BumimiDecode {
 
     public static boolean isloadLibrary = true;
-
     static {
         try {
             System.loadLibrary("anim_decode");
