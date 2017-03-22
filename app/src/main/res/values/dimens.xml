@@ -7,8 +7,9 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <!-- Android Design Support Library -->
+    <dimen name="text_size_large">14.0sp</dimen>
     <dimen name="navigation_max_width">280dp</dimen>
-
+    <dimen name="text_size_medium">12.0sp</dimen>
     <dimen name="default_tiny_padding">5dp</dimen>
     <dimen name="default_small_padding">8dp</dimen>
     <dimen name="default_tiny_margin">3dp</dimen>

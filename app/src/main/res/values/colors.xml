@@ -50,4 +50,9 @@
     <color name="viewfinder_mask">#60000000</color>
     <color name="header">#58567D</color>
     <color name="grgray">#686868</color>
+
+    <color name="night">#ff2d2d2d</color>
+    <color name="night_dark">#ff242424</color>
+    <color name="night_dark_trans">#99242424</color>
+    <color name="night_light">#ff3d3d3d</color>
 </resources>
